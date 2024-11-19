@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My GitHub Pages Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,72 +16,101 @@
         header {
             text-align: center;
             padding: 2rem 0;
-            border-bottom: 2px solid #0f0; /* Verde neon escuro */
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        nav a {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            padding: 0.8rem 2rem;
-            background-color: #0a7f12; /* Verde escuro neon */
-            border: 2px solid #0f0;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #0f0; /* Verde neon mais claro */
-            color: #000;
-            transform: scale(1.1);
+            border-bottom: 2px solid #005c23; /* Verde escuro */
         }
         .contact {
             text-align: center;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
         .contact a {
             display: inline-block;
             margin: 0.5rem;
             text-decoration: none;
-            color: #0f0; /* Verde neon */
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: color 0.3s, transform 0.3s;
+            color: #005c23; /* Verde escuro */
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.3s;
         }
         .contact a:hover {
-            color: #0a7f12; /* Verde escuro neon */
-            transform: scale(1.1);
+            color: #0f0; /* Verde neon */
+            transform: scale(1.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        nav p {
+            font-size: 1.5rem;
+            color: #005c23; /* Verde escuro */
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        nav p:hover {
+            color: #0f0; /* Verde neon */
+        }
+        .content {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .content div {
+            display: none;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #ccc; /* Cinza claro */
         }
         footer {
             text-align: center;
             margin-top: 3rem;
             padding: 1rem 0;
-            border-top: 2px solid #0f0;
+            border-top: 2px solid #005c23; /* Verde escuro */
             font-size: 0.9rem;
             color: #888;
         }
     </style>
+    <script>
+        function toggleContent(id) {
+            const sections = document.querySelectorAll('.content div');
+            sections.forEach(section => section.style.display = 'none'); // Esconde todos os textos
+            const selectedSection = document.getElementById(id);
+            if (selectedSection) selectedSection.style.display = 'block'; // Mostra o texto correspondente
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Welcome to My Tech Hub</h1>
     </header>
 
-    <nav>
-        <a href="#projects">Projects</a>
-        <a href="#about-me">About Me</a>
-        <a href="#skills">Skills</a>
-    </nav>
-
     <section class="contact">
         <h2>Contact</h2>
-        <a href="mailto:your_email@example.com">Email Me</a>
-        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
-        <a href="https://github.com/your-username" target="_blank">GitHub</a>
+        <a href="mailto:your_email@example.com" title="Email Me">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/your-username" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </section>
+
+    <nav>
+        <p onclick="toggleContent('projects')">Projects</p>
+        <p onclick="toggleContent('about-me')">About Me</p>
+        <p onclick="toggleContent('skills')">Skills</p>
+    </nav>
+
+    <section class="content">
+        <div id="projects">
+            <p>Here you can find a showcase of my best projects, including web development, data analysis, and automation.</p>
+        </div>
+        <div id="about-me">
+            <p>I am a passionate developer with a love for technology and problem-solving. Always eager to learn and grow.</p>
+        </div>
+        <div id="skills">
+            <p>My skills include Python, SQL, Power BI, Flask, and AWS. I also have experience with data analysis and automation tools.</p>
+        </div>
     </section>
 
     <footer>
