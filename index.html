@@ -3,44 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>My GitHub Pages Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
+            background-color: #000; /* Fundo preto */
+            color: #fff; /* Texto branco */
         }
         header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px 0;
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid #0f0; /* Verde neon escuro */
         }
-        main {
-            padding: 20px;
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 0.8rem 2rem;
+            background-color: #0a7f12; /* Verde escuro neon */
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #0f0; /* Verde neon mais claro */
+            color: #000;
+            transform: scale(1.1);
+        }
+        .contact {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .contact a {
+            display: inline-block;
+            margin: 0.5rem;
+            text-decoration: none;
+            color: #0f0; /* Verde neon */
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .contact a:hover {
+            color: #0a7f12; /* Verde escuro neon */
+            transform: scale(1.1);
         }
         footer {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #666;
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem 0;
+            border-top: 2px solid #0f0;
+            font-size: 0.9rem;
+            color: #888;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Page</h1>
-        <p>A simple static page hosted on GitHub Pages.</p>
+        <h1>Welcome to My Tech Hub</h1>
     </header>
-    <main>
-        <h2>About Me</h2>
-        <p>This is a basic HTML page designed to be hosted on GitHub Pages.</p>
-        <p>Feel free to edit this content and make it your own!</p>
-        <a href="https://github.com" target="_blank">Visit GitHub</a>
-    </main>
+
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about-me">About Me</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
+    <section class="contact">
+        <h2>Contact</h2>
+        <a href="mailto:your_email@example.com">Email Me</a>
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+        <a href="https://github.com/your-username" target="_blank">GitHub</a>
+    </section>
+
     <footer>
-        &copy; 2024 Your Name. All rights reserved.
+        <p>© 2024 My Tech Hub | All rights reserved.</p>
     </footer>
 </body>
 </html>
