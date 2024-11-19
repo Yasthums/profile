@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>My Tech Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,64 +16,159 @@
         header {
             text-align: center;
             padding: 2rem 0;
-            border-bottom: 2px solid #005c23; /* Verde escuro */
+            border-bottom: 2px solid #00ff00; /* Verde neon */
         }
-        .contact {
+        .contact-card {
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 1.5rem auto;
+            padding: 1rem;
+            max-width: 600px;
+            background-color: #111; /* Fundo escuro */
+            border: 2px solid #00ff00; /* Borda verde neon */
+            box-shadow: 0 0 15px #00ff00; /* Glow neon */
+            border-radius: 10px; /* Borda arredondada */
         }
-        .contact a {
+        .contact-card h2 {
+            font-size: 1.5rem;
+            color: #00ff00;
+            margin-bottom: 1rem;
+        }
+        .contact-card a {
             display: inline-block;
-            margin: 0.5rem;
+            margin: 0 1rem;
             text-decoration: none;
-            color: #005c23; /* Verde escuro */
-            font-size: 2rem;
+            color: #00ff00; /* Verde neon */
+            font-size: 2rem; /* Tamanho dos ícones */
             transition: color 0.3s ease, transform 0.3s;
         }
-        .contact a:hover {
-            color: #0f0; /* Verde neon */
+        .contact-card a:hover {
+            color: #fff;
             transform: scale(1.2);
+            text-shadow: 0 0 10px #00ff00; /* Glow neon ao hover */
         }
-        nav {
+        .section-header {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        nav p {
-            font-size: 1.5rem;
-            color: #005c23; /* Verde escuro */
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: 1px solid #00ff00;
+            margin: 1rem auto;
+            max-width: 800px;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
-        nav p:hover {
-            color: #0f0; /* Verde neon */
+        .section-header:hover {
+            background-color: #111;
+            box-shadow: 0 0 15px #00ff00;
         }
-        .content {
-            text-align: center;
-            margin: 1rem 0;
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #00ff00;
         }
-        .content div {
-            display: none;
+        .section-header i {
+            color: #00ff00;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .section-content {
+            display: none; /* Inicialmente oculto */
+            padding: 1rem 2rem;
+            max-width: 800px;
+            margin: auto;
+            background-color: #000;
+            border-left: 2px solid #00ff00;
+            border-right: 2px solid #00ff00;
+            border-bottom: 2px solid #00ff00;
+        }
+        .project-list, .skills-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .project-list li, .skills-list li {
+            margin: 0.5rem 0;
+            color: #00ff00;
+            cursor: pointer;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .project-list li:hover, .skills-list li:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        .project-details {
             margin-top: 1rem;
-            font-size: 1.2rem;
-            color: #ccc; /* Cinza claro */
+            background-color: #111;
+            padding: 1rem;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+            color: #fff;
         }
         footer {
             text-align: center;
             margin-top: 3rem;
             padding: 1rem 0;
-            border-top: 2px solid #005c23; /* Verde escuro */
+            border-top: 2px solid #00ff00;
             font-size: 0.9rem;
             color: #888;
         }
     </style>
     <script>
         function toggleContent(id) {
-            const sections = document.querySelectorAll('.content div');
-            sections.forEach(section => section.style.display = 'none'); // Esconde todos os textos
-            const selectedSection = document.getElementById(id);
-            if (selectedSection) selectedSection.style.display = 'block'; // Mostra o texto correspondente
+            const content = document.getElementById(id);
+            const icon = document.querySelector(`#${id}-icon`);
+
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                content.style.display = "none";
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+
+        function showProjectDetails(projectId) {
+            const details = document.getElementById('project-details');
+            const projectData = {
+                "project1": {
+                    title: "Cloud-based Database on AWS",
+                    description: "Development and deployment of a cloud-based database on Amazon Web Services (AWS) with ETL processes, ensuring data integrity, efficiency, and accessibility."
+                },
+                "project2": {
+                    title: "ETL Quality Control",
+                    description: "Enhancement of ETL extraction processes through advanced quality control rules, boosting operationalization and usability of collected raw data."
+                },
+                "project3": {
+                    title: "Fiscal Information Systems",
+                    description: "Building and optimization of fiscal information systems using Python, SQL, and JavaScript, ensuring data accuracy and bolstering reliability and trustworthiness of financial reporting."
+                },
+                "project4": {
+                    title: "Automated Statement System",
+                    description: "Creation of database and automated statement information system with real-time, high-fidelity data, enhancing managerial oversight and decision-making."
+                },
+                "project5": {
+                    title: "Tax Automation for Reform",
+                    description: "Design and implementation of a database tax information automation system to support management during the transitional period of the current national tax reform."
+                },
+                "project6": {
+                    title: "Internal Process Automation",
+                    description: "Engineering of automated internal process systems to streamline workflows, reduce bureaucratic barriers, and accelerate operational efficiency, achieving notable cost savings."
+                },
+                "project7": {
+                    title: "Process Analysis and Compliance",
+                    description: "Execution of comprehensive process analyses to identify improvement opportunities and ensure full compliance with regulatory requirements."
+                }
+            };
+
+            if (projectData[projectId]) {
+                details.innerHTML = `
+                    <h3>${projectData[projectId].title}</h3>
+                    <p>${projectData[projectId].description}</p>
+                `;
+                details.style.display = "block";
+            }
         }
     </script>
 </head>
@@ -82,39 +177,71 @@
         <h1>Welcome to My Tech Hub</h1>
     </header>
 
-    <section class="contact">
+    <div class="contact-card">
         <h2>Contact</h2>
-        <a href="mailto:your_email@example.com" title="Email Me">
+        <a href="mailto:yasminthums@Outlook.com" title="Email">
             <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/yasminthums/" target="_blank" title="LinkedIn">
             <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://github.com/your-username" target="_blank" title="GitHub">
+        <a href="https://github.com/Yasthums" target="_blank" title="GitHub">
             <i class="fab fa-github"></i>
         </a>
-    </section>
+    </div>
 
-    <nav>
-        <p onclick="toggleContent('projects')">Projects</p>
-        <p onclick="toggleContent('about-me')">About Me</p>
-        <p onclick="toggleContent('skills')">Skills</p>
-    </nav>
+    <div class="section">
+        <div class="section-header" onclick="toggleContent('about-me')">
+            <h2>About Me</h2>
+            <i id="about-me-icon" class="fas fa-chevron-down"></i>
+        </div>
+        <div class="section-content" id="about-me">
+            <p>
+                Technology professional with a solid foundation in Electrical Engineering and a postgraduate degree in Data Science and Analytics. Extensive hands-on experience in systems development, process automation, and data analysis. Current role as Senior data engineer at Espaço Laser includes the development of a comprehensive financial database, streamlining tax-related processes and enhancing reporting efficiency. Expertise in Python, SQL, Power BI, JavaScript, and AWS technologies, supporting data-driven decision-making and optimizing business operations.
+            </p>
+        </div>
+    </div>
 
-    <section class="content">
-        <div id="projects">
-            <p>Here you can find a showcase of my best projects, including web development, data analysis, and automation.</p>
+    <div class="section">
+        <div class="section-header" onclick="toggleContent('projects')">
+            <h2>Projects</h2>
+            <i id="projects-icon" class="fas fa-chevron-down"></i>
         </div>
-        <div id="about-me">
-            <p>I am a passionate developer with a love for technology and problem-solving. Always eager to learn and grow.</p>
+        <div class="section-content" id="projects">
+            <ul class="project-list">
+                <li onclick="showProjectDetails('project1')">Cloud-based Database on AWS</li>
+                <li onclick="showProjectDetails('project2')">ETL Quality Control</li>
+                <li onclick="showProjectDetails('project3')">Fiscal Information Systems</li>
+                <li onclick="showProjectDetails('project4')">Automated Statement System</li>
+                <li onclick="showProjectDetails('project5')">Tax Automation for Reform</li>
+                <li onclick="showProjectDetails('project6')">Internal Process Automation</li>
+                <li onclick="showProjectDetails('project7')">Process Analysis and Compliance</li>
+            </ul>
+            <div id="project-details" class="project-details" style="display: none;"></div>
         </div>
-        <div id="skills">
-            <p>My skills include Python, SQL, Power BI, Flask, and AWS. I also have experience with data analysis and automation tools.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header" onclick="toggleContent('skills')">
+            <h2>Skills</h2>
+            <i id="skills-icon" class="fas fa-chevron-down"></i>
         </div>
-    </section>
+        <div class="section-content" id="skills">
+            <ul class="skills-list">
+                <li><i class="fab fa-python"></i>Python</li>
+                <li><i class="fas fa-database"></i>SQL</li>
+                <li><i class="fas fa-chart-bar"></i>Power BI</li>
+                <li><i class="fab fa-js"></i>JavaScript</li>
+                <li><i class="fab fa-aws"></i>AWS</li>
+                <li><i class="fas fa-flask"></i>Flask</li>
+                <li><i class="fas fa-chart-line"></i>Data Analysis</li>
+            </ul>
+        </div>
+    </div>
 
     <footer>
         <p>© 2024 My Tech Hub | All rights reserved.</p>
     </footer>
 </body>
 </html>
+
